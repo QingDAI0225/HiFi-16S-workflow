@@ -1,0 +1,37 @@
+---
+title: "metadata and data table generating"
+output: html_document
+author: Qing Dai
+date: "2025-04-04"
+---
+
+```{r}
+library(vroom)
+library(tidyr)
+```
+
+## sample table directory settings
+```{r}
+data_dir = "cwork/qd33/data/ptrap_longitudinal_pb16S/10837/0000000692"
+meta_file = file.path(data_dir,  "10837_P2dem.csv")
+demultiplex_dir = file.path(data_dir, "outputs", "Pool2_fastx_files")
+prefix = "m84165_250321_202436_s4.hifi_reads."
+suffix = ".hifi_reads.fastq.gz"
+output_dir = "/cwork/qd33/pipeline_result/HiFi_16S/HiFi_16S_692/data_table"
+sample_table_name = "10837_692.tsv"
+metadata_name = "10837_692_metadata.tsv"
+```
+
+
+```{r}
+sample_table = data.frame(vroom(meta_file, delim = ","))
+colnames(sample_table) = c("barcode", "sample_id")
+absolute_filepath = file.path(demultiplex_dir, paste0(prefix, sample_table$barcode, suffix, sep = ""))
+sample_table_ready = data.frame(cbind(sample_table$sample_id, absolute_filepath))
+medatada_table_ready = data.frame(cbind(sample_table$sample_id, condition="a"))
+colnames(sample_table_ready) = c("sample-id", "absolute-filepath")
+colnames(medatada_table_ready) = c("sample_name", "condition")
+dir.create(output_dir, recursive = TRUE)
+write.table(sample_table_ready, file.path(output_dir, sample_table_name), quote = F, row.names = F, sep = "\t")
+write.table(medatada_table_ready, file.path(output_dir, metadata_name), quote = F, row.names = F, sep = "\t")
+```

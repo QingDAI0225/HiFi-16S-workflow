@@ -1,5 +1,6 @@
 process QC_fastq {
-    conda (params.enable_conda ? "$projectDir/env/pb-16s-pbtools.yml" : null)
+    conda '$projectDir/conda/pb-16s-pbtools'
+    // conda (params.enable_conda ? "$projectDir/env/pb-16s-pbtools.yml" : null)
     container "kpinpb/pb-16s-nf-tools:latest"
     label 'cpu8'
     publishDir "$params.outdir/filtered_input_FASTQ", pattern: '*filterQ*.fastq.gz', mode: params.publish_dir_mode
@@ -34,7 +35,8 @@ process QC_fastq {
 }
 
 process cutadapt {
-    conda (params.enable_conda ? "$projectDir/env/qiime2-amplicon-2024.10-py310-ubuntu-conda.yml" : null)
+    conda '$projectDir/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda'
+    // conda (params.enable_conda ? "$projectDir/env/qiime2-amplicon-2024.10-py310-ubuntu-conda.yml" : null)
     container "quay.io/qiime2/amplicon@sha256:4038fd785bf4e76ddd6ec7a7f57abe94cdca6c5cd0a93d0924971a74eabd7cf2"
     publishDir "$params.outdir/trimmed_primers_FASTQ", pattern: '*.fastq.gz', mode: params.publish_dir_mode
     publishDir "$params.outdir/cutadapt_summary", pattern: '*.report', mode: params.publish_dir_mode
@@ -67,7 +69,8 @@ process cutadapt {
 }
 
 process QC_fastq_post_trim {
-    conda (params.enable_conda ? "$projectDir/env/pb-16s-pbtools.yml" : null)
+    conda '$projectDir/conda/pb-16s-pbtools'
+    // conda (params.enable_conda ? "$projectDir/env/pb-16s-pbtools.yml" : null)
     container "kpinpb/pb-16s-nf-tools:latest"
     label 'cpu8'
     publishDir "$params.outdir/filtered_input_FASTQ", pattern: '*post_trim.tsv', mode: params.publish_dir_mode
@@ -86,7 +89,8 @@ process QC_fastq_post_trim {
 }
 
 process collect_QC {
-    conda (params.enable_conda ? "$projectDir/env/pb-16s-pbtools.yml" : null)
+    conda '$projectDir/conda/pb-16s-pbtools'
+    // conda (params.enable_conda ? "$projectDir/env/pb-16s-pbtools.yml" : null)
     container "kpinpb/pb-16s-nf-tools:latest"
     publishDir "$params.outdir/results/reads_QC", mode: params.publish_dir_mode
     label 'cpu8'
@@ -118,7 +122,8 @@ process collect_QC {
 }
 
 process collect_QC_skip_cutadapt {
-    conda (params.enable_conda ? "$projectDir/env/pb-16s-pbtools.yml" : null)
+    conda '$projectDir/conda/pb-16s-pbtools'
+    // conda (params.enable_conda ? "$projectDir/env/pb-16s-pbtools.yml" : null)
     container "kpinpb/pb-16s-nf-tools:latest"
     publishDir "$params.outdir/results/reads_QC", mode: params.publish_dir_mode
     label 'cpu8'
@@ -145,7 +150,8 @@ process collect_QC_skip_cutadapt {
 
 process prepare_qiime2_manifest {
     label 'cpu_def'
-    conda (params.enable_conda ? "$projectDir/env/pb-16s-pbtools.yml" : null)
+    conda '$projectDir/conda/pb-16s-pbtools'
+    // conda (params.enable_conda ? "$projectDir/env/pb-16s-pbtools.yml" : null)
     container "kpinpb/pb-16s-nf-tools:latest"
 
     input: 
@@ -180,7 +186,8 @@ process prepare_qiime2_manifest {
 
 process prepare_qiime2_manifest_skip_cutadapt {
     label 'cpu_def'
-    conda (params.enable_conda ? "$projectDir/env/pb-16s-pbtools.yml" : null)
+    conda '$projectDir/conda/pb-16s-pbtools'
+    // conda (params.enable_conda ? "$projectDir/env/pb-16s-pbtools.yml" : null)
     container "kpinpb/pb-16s-nf-tools:latest"
 
     input: 
@@ -214,7 +221,8 @@ process prepare_qiime2_manifest_skip_cutadapt {
 }
 
 process import_qiime2 {
-    conda (params.enable_conda ? "$projectDir/env/qiime2-amplicon-2024.10-py310-ubuntu-conda.yml" : null)
+    conda '$projectDir/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda'
+    // conda (params.enable_conda ? "$projectDir/env/qiime2-amplicon-2024.10-py310-ubuntu-conda.yml" : null)
     container "quay.io/qiime2/amplicon@sha256:4038fd785bf4e76ddd6ec7a7f57abe94cdca6c5cd0a93d0924971a74eabd7cf2"
     publishDir "$params.outdir/import_qiime", mode: params.publish_dir_mode
     label 'cpu_def'
@@ -239,7 +247,8 @@ process import_qiime2 {
 }
 
 process demux_summarize {
-    conda (params.enable_conda ? "$projectDir/env/qiime2-amplicon-2024.10-py310-ubuntu-conda.yml" : null)
+    conda '$projectDir/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda'
+    // conda (params.enable_conda ? "$projectDir/env/qiime2-amplicon-2024.10-py310-ubuntu-conda.yml" : null)
     container "quay.io/qiime2/amplicon@sha256:4038fd785bf4e76ddd6ec7a7f57abe94cdca6c5cd0a93d0924971a74eabd7cf2"
     publishDir "$params.outdir/summary_demux", mode: params.publish_dir_mode
     label 'cpu_def'
@@ -264,7 +273,8 @@ process demux_summarize {
 process merge_manifest {
     label 'cpu_def'
     publishDir "$params.outdir/results/", mode: params.publish_dir_mode
-    conda (params.enable_conda ? "$projectDir/env/pb-16s-pbtools.yml" : null)
+    conda '$projectDir/conda/pb-16s-pbtools'
+    // conda (params.enable_conda ? "$projectDir/env/pb-16s-pbtools.yml" : null)
     container "kpinpb/pb-16s-nf-tools:latest"
 
     input:
