@@ -1,5 +1,5 @@
 process class_tax {
-    conda '$projectDir/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda'
+    conda "$projectDir/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda"
     // conda (params.enable_conda ? "$projectDir/env/qiime2-amplicon-2024.10-py310-ubuntu-conda.yml" : null)
     container "quay.io/qiime2/amplicon@sha256:4038fd785bf4e76ddd6ec7a7f57abe94cdca6c5cd0a93d0924971a74eabd7cf2"
     publishDir "$params.outdir/results", mode: params.publish_dir_mode
@@ -49,7 +49,7 @@ process class_tax {
 }
 
 process dada2_assignTax {
-    conda '$projectDir/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda'
+    conda "$projectDir/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda"
     // conda (params.enable_conda ? "$projectDir/env/qiime2-amplicon-2024.10-py310-ubuntu-conda.yml" : null)
     container "quay.io/qiime2/amplicon@sha256:4038fd785bf4e76ddd6ec7a7f57abe94cdca6c5cd0a93d0924971a74eabd7cf2"
     publishDir "$params.outdir/results", pattern: 'best_tax*', mode: params.publish_dir_mode
@@ -99,7 +99,7 @@ process dada2_assignTax {
 }
 
 process export_biom {
-    conda '$projectDir/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda'
+    conda "$projectDir/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda"
     // conda (params.enable_conda ? "$projectDir/env/qiime2-amplicon-2024.10-py310-ubuntu-conda.yml" : null)
     container "quay.io/qiime2/amplicon@sha256:4038fd785bf4e76ddd6ec7a7f57abe94cdca6c5cd0a93d0924971a74eabd7cf2"
     publishDir "$params.outdir/results", mode: params.publish_dir_mode
@@ -137,7 +137,7 @@ process export_biom {
 }
 
 process export_biom_skip_nb {
-    conda '$projectDir/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda'
+    conda "$projectDir/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda"
     // conda (params.enable_conda ? "$projectDir/env/qiime2-amplicon-2024.10-py310-ubuntu-conda.yml" : null)
     container "quay.io/qiime2/amplicon@sha256:4038fd785bf4e76ddd6ec7a7f57abe94cdca6c5cd0a93d0924971a74eabd7cf2"
     publishDir "$params.outdir/results", mode: params.publish_dir_mode

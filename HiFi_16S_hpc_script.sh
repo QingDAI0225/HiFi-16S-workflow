@@ -3,7 +3,6 @@
 
 #-----------------------------------------------------------
 # Run the following to run this script:
-#   mamba activate snakemake7
 #   sbatch -A chsi -p chsi -c8 --mem 20G HiFi_16S_hpc_script.sh
 #-----------------------------------------------------------
 
@@ -30,7 +29,6 @@ OUTDIR="${WORKDIR}/result"
 cd $WORKDIR
 module load Java/11.0.8
 mkdir -p ${CONDA_DIR}
-# conda shell.bash activate snakemake
 # mkdir -p $WORKDIR; cd $WORKDIR
 
 mamba env create -p ${CONDA_DIR}/pb-16s-pbtools -y --file ${WORKDIR}/env/pb-16s-pbtools.yml

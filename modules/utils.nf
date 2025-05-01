@@ -76,7 +76,8 @@ def helpMessage() {
 }
 
 process write_log {
-    conda (params.enable_conda ? "$projectDir/env/pb-16s-pbtools.yml" : null)
+    conda "$projectDir/conda/pb-16s-pbtools"
+    // conda (params.enable_conda ? "$projectDir/env/pb-16s-pbtools.yml" : null)
     container "kpinpb/pb-16s-nf-tools:latest" 
     publishDir "$params.outdir", mode: params.publish_dir_mode
     label 'cpu_def'
@@ -94,7 +95,8 @@ process write_log {
 }
 
 process download_db {
-    conda (params.enable_conda ? "$projectDir/env/qiime2-amplicon-2024.10-py310-ubuntu-conda.yml" : null)
+    conda "$projectDir/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda"
+    // conda (params.enable_conda ? "$projectDir/env/qiime2-amplicon-2024.10-py310-ubuntu-conda.yml" : null)
     container "quay.io/qiime2/amplicon@sha256:4038fd785bf4e76ddd6ec7a7f57abe94cdca6c5cd0a93d0924971a74eabd7cf2"
     publishDir "$projectDir/databases", mode: "copy"
     label 'cpu_def'
@@ -133,7 +135,8 @@ process download_db {
 }
 
 process picrust2 {
-    conda (params.enable_conda ? "$projectDir/env/pb-16s-pbtools.yml" : null)
+    conda "$projectDir/conda/pb-16s-pbtools"
+    // conda (params.enable_conda ? "$projectDir/env/pb-16s-pbtools.yml" : null)
     container "kpinpb/pb-16s-nf-tools:latest"
     label 'cpu32'
     publishDir "$params.outdir/results", mode: params.publish_dir_mode

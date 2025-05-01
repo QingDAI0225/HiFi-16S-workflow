@@ -1,5 +1,5 @@
 process qiime2_phylogeny_diversity {
-    conda '$projectDir/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda'
+    conda "$projectDir/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda"
     // conda (params.enable_conda ? "$projectDir/env/qiime2-amplicon-2024.10-py310-ubuntu-conda.yml" : null)
     container "quay.io/qiime2/amplicon@sha256:4038fd785bf4e76ddd6ec7a7f57abe94cdca6c5cd0a93d0924971a74eabd7cf2"
     publishDir "$params.outdir/results/phylogeny_diversity", mode: params.publish_dir_mode
@@ -78,7 +78,7 @@ process qiime2_phylogeny_diversity {
 }
 
 process barplot {
-    conda '$projectDir/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda'
+    conda "$projectDir/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda"
     // conda (params.enable_conda ? "$projectDir/env/qiime2-amplicon-2024.10-py310-ubuntu-conda.yml" : null)
     container "quay.io/qiime2/amplicon@sha256:4038fd785bf4e76ddd6ec7a7f57abe94cdca6c5cd0a93d0924971a74eabd7cf2"
     publishDir "$params.outdir/results", mode: params.publish_dir_mode
@@ -102,7 +102,7 @@ process barplot {
 }
 
 process barplot_nb {
-    conda '$projectDir/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda'
+    conda "$projectDir/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda"
     // conda (params.enable_conda ? "$projectDir/env/qiime2-amplicon-2024.10-py310-ubuntu-conda.yml" : null)
     container "quay.io/qiime2/amplicon@sha256:4038fd785bf4e76ddd6ec7a7f57abe94cdca6c5cd0a93d0924971a74eabd7cf2"
     publishDir "$params.outdir/results", mode: params.publish_dir_mode
@@ -126,7 +126,7 @@ process barplot_nb {
 }
 
 process html_rep {
-    conda '$projectDir/conda/pb-16s-vis'
+    conda "$projectDir/conda/pb-16s-vis"
     // conda (params.enable_conda ? "$projectDir/env/pb-16s-vis-conda.yml" : null)
     container "kpinpb/pb-16s-vis:latest"
     publishDir "$params.outdir/results", mode: params.publish_dir_mode
@@ -169,7 +169,7 @@ process html_rep {
 }
 
 process html_rep_skip_cutadapt {
-    conda '$projectDir/conda/pb-16s-vis'
+    conda "$projectDir/conda/pb-16s-vis"
     // conda (params.enable_conda ? "$projectDir/env/pb-16s-vis-conda.yml" : null)
     container "kpinpb/pb-16s-vis:latest"
     publishDir "$params.outdir/results", mode: params.publish_dir_mode
@@ -212,7 +212,7 @@ process html_rep_skip_cutadapt {
 }
 
 process krona_plot {
-    conda '$projectDir/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda'
+    conda "$projectDir/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda"
     // conda (params.enable_conda ? "$projectDir/env/qiime2-amplicon-2024.10-py310-ubuntu-conda.yml" : null)
     container "quay.io/qiime2/amplicon@sha256:4038fd785bf4e76ddd6ec7a7f57abe94cdca6c5cd0a93d0924971a74eabd7cf2"
     publishDir "$params.outdir/results", mode: params.publish_dir_mode

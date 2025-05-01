@@ -1,5 +1,5 @@
 process learn_error {
-    conda '$projectDir/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda'
+    conda "$projectDir/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda"
     // conda (params.enable_conda ? "$projectDir/env/qiime2-amplicon-2024.10-py310-ubuntu-conda.yml" : null)
     container "quay.io/qiime2/amplicon@sha256:4038fd785bf4e76ddd6ec7a7f57abe94cdca6c5cd0a93d0924971a74eabd7cf2"
     publishDir "$params.outdir/dada2", mode: params.publish_dir_mode
@@ -20,7 +20,7 @@ process learn_error {
 }
 
 process dada2_denoise {
-    conda '$projectDir/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda'
+    conda "$projectDir/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda"
     // conda (params.enable_conda ? "$projectDir/env/qiime2-amplicon-2024.10-py310-ubuntu-conda.yml" : null)
     container "quay.io/qiime2/amplicon@sha256:4038fd785bf4e76ddd6ec7a7f57abe94cdca6c5cd0a93d0924971a74eabd7cf2"
     publishDir "$params.outdir/dada2", mode: params.publish_dir_mode
@@ -60,7 +60,7 @@ process dada2_denoise {
 }
 
 process dada2_denoise_with_error_model {
-    conda '$projectDir/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda'
+    conda "$projectDir/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda"
     // conda (params.enable_conda ? "$projectDir/env/qiime2-amplicon-2024.10-py310-ubuntu-conda.yml" : null)
     container "quay.io/qiime2/amplicon@sha256:4038fd785bf4e76ddd6ec7a7f57abe94cdca6c5cd0a93d0924971a74eabd7cf2"
     publishDir "$params.outdir/dada2", mode: params.publish_dir_mode
@@ -102,7 +102,7 @@ process dada2_denoise_with_error_model {
 }
 
 process mergeASV {
-    conda '$projectDir/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda'
+    conda "$projectDir/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda"
     // conda (params.enable_conda ? "$projectDir/env/qiime2-amplicon-2024.10-py310-ubuntu-conda.yml" : null)
     container "quay.io/qiime2/amplicon@sha256:4038fd785bf4e76ddd6ec7a7f57abe94cdca6c5cd0a93d0924971a74eabd7cf2"
     publishDir "$params.outdir/dada2", mode: params.publish_dir_mode
@@ -140,7 +140,7 @@ process mergeASV {
 }
 
 process filter_dada2 {
-    conda '$projectDir/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda'
+    conda "$projectDir/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda"
     // conda (params.enable_conda ? "$projectDir/env/qiime2-amplicon-2024.10-py310-ubuntu-conda.yml" : null)
     container "quay.io/qiime2/amplicon@sha256:4038fd785bf4e76ddd6ec7a7f57abe94cdca6c5cd0a93d0924971a74eabd7cf2"
     publishDir "$params.outdir/dada2", mode: params.publish_dir_mode
@@ -197,7 +197,7 @@ process filter_dada2 {
 }
 
 process dada2_qc {
-    conda '$projectDir/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda'
+    conda "$projectDir/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda"
     // conda (params.enable_conda ? "$projectDir/env/qiime2-amplicon-2024.10-py310-ubuntu-conda.yml" : null)
     container "quay.io/qiime2/amplicon@sha256:4038fd785bf4e76ddd6ec7a7f57abe94cdca6c5cd0a93d0924971a74eabd7cf2"
     publishDir "$params.outdir/results", mode: params.publish_dir_mode
@@ -273,7 +273,7 @@ process dada2_qc {
 }
 
 process dada2_rarefaction {
-    conda '$projectDir/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda'
+    conda "$projectDir/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda"
     // conda (params.enable_conda ? "$projectDir/env/qiime2-amplicon-2024.10-py310-ubuntu-conda.yml" : null)
     container "quay.io/qiime2/amplicon@sha256:4038fd785bf4e76ddd6ec7a7f57abe94cdca6c5cd0a93d0924971a74eabd7cf2"
     publishDir "$params.outdir/results", mode: params.publish_dir_mode
