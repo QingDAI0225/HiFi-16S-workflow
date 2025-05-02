@@ -273,7 +273,7 @@ process demux_summarize {
 process merge_manifest {
     label 'cpu_def'
     publishDir "$params.outdir/results/", mode: params.publish_dir_mode
-    conda '$projectDir/conda/pb-16s-pbtools'
+    conda "$projectDir/conda/pb-16s-pbtools"
     // conda (params.enable_conda ? "$projectDir/env/pb-16s-pbtools.yml" : null)
     container "kpinpb/pb-16s-nf-tools:latest"
 
