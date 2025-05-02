@@ -27,3 +27,5 @@ mamba env create -p ${WORKDIR}/conda/pb-16s-vis -y --file ${WORKDIR}/env/pb-16s-
 mamba env create -p ${WORKDIR}/conda/qiime2-amplicon-2024.10-py310-ubuntu-conda -y --file ${WORKDIR}/env/qiime2-amplicon-2024.10-py310-ubuntu-conda.yml
 
 nextflow run main.nf --download_db
+
+exit 0
