@@ -31,10 +31,6 @@ module load Java/11.0.8
 mkdir -p ${CONDA_DIR}
 # mkdir -p $WORKDIR; cd $WORKDIR
 
-mamba env create -p ${CONDA_DIR}/pb-16s-pbtools -y --file ${WORKDIR}/env/pb-16s-pbtools.yml
-mamba env create -p ${CONDA_DIR}/pb-16s-vis -y --file ${WORKDIR}/env/pb-16s-vis-conda.yml
-mamba env create -p ${CONDA_DIR}/qiime2-amplicon-2024.10-py310-ubuntu-conda -y --file ${WORKDIR}/env/qiime2-amplicon-2024.10-py310-ubuntu-conda.yml
-
 nextflow run main.nf -profile conda -c ${WORKDIR}/nextflow.config \
     -process.queue "chsi" \
     -process.cpus $NUM_THREADS \
